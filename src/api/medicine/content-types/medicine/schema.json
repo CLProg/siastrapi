@@ -1,0 +1,60 @@
+{
+  "kind": "collectionType",
+  "collectionName": "medicines",
+  "info": {
+    "singularName": "medicine",
+    "pluralName": "medicines",
+    "displayName": "Medicine",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "medicine_name": {
+      "type": "string",
+      "required": true
+    },
+    "medicine_desc": {
+      "type": "text",
+      "required": true
+    },
+    "is_prescription": {
+      "type": "boolean",
+      "required": true
+    },
+    "medicine_img": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "medicine_type": {
+      "type": "enumeration",
+      "enum": [
+        "tablet",
+        "capsule",
+        "syrup",
+        "injectables",
+        "inhalers",
+        "drops"
+      ]
+    },
+    "batch": {
+      "type": "component",
+      "component": "batch.batch",
+      "repeatable": true
+    },
+    "medicine_category": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::medicine-category.medicine-category"
+    }
+  }
+}
